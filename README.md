@@ -21,6 +21,6 @@ This repository is a submission for Front-end Web Expert Course, Dicoding.
    npm run build
    ```
 
-## Deploying version
+## Live Site URL
 
 https://eatis-restaurant-apps.vercel.app/
