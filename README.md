@@ -20,3 +20,7 @@ This repository is a submission for Front-end Web Expert Course, Dicoding.
    # Production mode
    npm run build
    ```
+
+## Deploying version
+
+https://eatis-restaurant-apps.vercel.app/
