@@ -13,7 +13,7 @@ data.restaurants.forEach((restaurant) => {
     </div>
     <p class="rating">Rating: ${restaurant.rating}</p>
     <div class="content">
-        <h3 class="resto-title">${restaurant.name}</h3>
+        <h3 class="resto-title"><a href="#">${restaurant.name}</a></h3>
         <p class="resto-desc">
         ${restaurant.description.substring(0, 200)}...
         </p>
