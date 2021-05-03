@@ -1,0 +1,384 @@
+$orange: #fc8868;
+$white: #fcfcfc;
+$grey: #2c2c2c;
+$sand: #fff3ef;
+$mobile: 620px;
+$medium: 970px;
+$smooth-shadow: 0 0px 91px -25px rgba(29, 29, 29, 0.13);
+$animasi: 300ms ease-in-out;
+
+@mixin grid-size($n) {
+  grid-template-columns: repeat($n, 1fr);
+}
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+@mixin hamburger-show {
+  #drawer {
+    height: 100%;
+    width: 250px;
+    top: 0;
+    margin: 0 0 0 -40px;
+    position: fixed;
+    z-index: 99;
+    transform: translate(-250px, 0);
+    transition: transform 0.3s ease-in-out;
+    background-color: $white;
+    box-shadow: $smooth-shadow;
+
+    .nav-list {
+      margin-top: 40px;
+      margin-right: 40px;
+      .nav-item {
+        display: block;
+        border-bottom: 3px solid rgba($color: $orange, $alpha: 0.2);
+        height: 60px;
+        line-height: 60px;
+        margin-left: 30px;
+
+        a {
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  #hamburger {
+    display: block !important;
+    font-size: 32px;
+    text-decoration: none;
+    color: $white;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 0 solid black;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: $grey;
+  min-height: 1000px;
+  background-color: $sand;
+}
+
+button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.container {
+  @include container();
+}
+
+.highlight {
+  color: $orange;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  margin-top: 15px;
+  border-radius: 0 30px 30px 0;
+  background-color: rgb(70, 70, 70);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 8px;
+  z-index: 100;
+  transition: $animasi;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transition: $animasi;
+  top: 0;
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.644);
+}
+
+.header {
+  background-color: $orange;
+
+  .container {
+    display: flex;
+    position: sticky;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    min-height: 80px;
+    width: 100%;
+
+    .nav-item {
+      display: inline-block;
+      margin-left: 60px;
+
+      a {
+        text-decoration: none;
+        color: $white;
+        font-weight: 600;
+      }
+    }
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  .open {
+    transform: translate(0, 0) !important;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  width: 100%;
+  text-align: center;
+  background-image: url("../public/images/heros/hero-image.png");
+  background-position: center;
+}
+
+.hero-inner {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 30px 30px;
+
+  .hero-title {
+    color: $white;
+    font-weight: 500;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 120%;
+  }
+
+  .hero-tagline {
+    color: $white;
+    margin-top: 16px;
+    font-size: 22px;
+    font-weight: 300;
+  }
+}
+
+.content {
+  margin: 0 auto;
+
+  .welcome {
+    min-height: 300px;
+    margin: 60px 0;
+
+    .container {
+      display: flex;
+
+      img {
+        width: 300px;
+      }
+
+      .text {
+        margin-left: 100px;
+        padding-right: 40px;
+        .welcome-title {
+          font-size: 36px;
+          margin-bottom: 20px;
+        }
+        .welcome-desc {
+          padding-right: 40px;
+        }
+      }
+    }
+  }
+
+  .katalog {
+    @include container();
+    padding-top: 0;
+
+    .katalog-title {
+      font-size: 36px;
+      text-align: center;
+      color: $grey;
+    }
+
+    .restos {
+      display: grid;
+      @include grid-size(3);
+      margin: 40px 0;
+      gap: 30px;
+
+      .resto {
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: $white;
+        box-shadow: $smooth-shadow;
+        transition: $animasi;
+
+        &:hover {
+          transform: scale(1.02);
+          transition: $animasi;
+        }
+
+        .location-tag {
+          position: absolute;
+          z-index: 80;
+          padding: 8px 20px;
+          margin-top: 25px;
+          background-color: $orange;
+          color: $white;
+          width: fit-content;
+          font-weight: 500;
+          border-radius: 0 20px 20px 0;
+          box-shadow: $smooth-shadow;
+        }
+
+        .rating {
+          margin: 10px 0;
+          padding-left: 20px;
+          font-weight: 600;
+          color: rgb(116, 116, 116);
+        }
+
+        .foto {
+          max-height: 300px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .content {
+          margin: 0 20px 30px 20px;
+          .resto-title {
+            font-size: 24px;
+          }
+          .resto-desc {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 20px;
+  background-color: $grey;
+  color: $white;
+  text-align: center;
+}
+
+//medium screen
+@media screen and (max-width: $medium) {
+  @include hamburger-show();
+  .content {
+    .welcome {
+      margin: 0;
+      .container {
+        flex-direction: column;
+        align-items: center;
+
+        .text {
+          order: 1;
+          margin-bottom: 50px;
+          margin-left: 0;
+          text-align: center;
+          padding: 0;
+
+          .welcome-title {
+            font-size: 32px;
+          }
+
+          .welcome-desc {
+            padding: 0 25px;
+          }
+        }
+
+        img {
+          order: 2;
+          width: 250px;
+        }
+      }
+    }
+
+    .katalog {
+      .katalog-title {
+        font-size: 32px;
+      }
+      .restos {
+        @include grid-size(2);
+      }
+    }
+  }
+}
+
+//Mobile screen
+@media screen and (max-width: $mobile) {
+  @include hamburger-show();
+
+  .hero-inner {
+    .hero-title {
+      font-size: 48px;
+    }
+
+    .hero-tagline {
+      margin-top: 16px;
+      font-size: 20px;
+    }
+  }
+
+  .content {
+    .welcome {
+      margin: 0;
+      .container {
+        flex-direction: column;
+        align-items: center;
+
+        .text {
+          order: 1;
+          margin-bottom: 50px;
+          margin-left: 0;
+          text-align: center;
+        }
+
+        img {
+          order: 2;
+          width: 250px;
+        }
+      }
+    }
+
+    .katalog {
+      .katalog-title {
+        font-size: 32px;
+      }
+      .restos {
+        @include grid-size(1);
+      }
+    }
+  }
+}
