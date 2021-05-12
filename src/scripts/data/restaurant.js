@@ -1,6 +1,6 @@
-const data = require("./../DATA.json");
+const data = require('./DATA.json');
 
-let html = "";
+let html = '';
 data.restaurants.forEach((restaurant) => {
   html += `
     <div class="resto">
@@ -20,5 +20,5 @@ data.restaurants.forEach((restaurant) => {
     </div>
     </div>  
   `;
-  document.querySelector("#restos").innerHTML = html;
+  document.querySelector('#restos').innerHTML = html;
 });

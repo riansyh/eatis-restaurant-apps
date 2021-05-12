@@ -18,7 +18,7 @@ $animasi: 300ms ease-in-out;
 }
 
 @mixin hamburger-show {
-  #drawer {
+  #drawerElement {
     height: 100%;
     width: 250px;
     top: 0;
@@ -47,7 +47,7 @@ $animasi: 300ms ease-in-out;
     }
   }
 
-  #hamburger {
+  #hamburgerButton {
     display: block !important;
     font-size: 32px;
     text-decoration: none;
@@ -72,7 +72,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: $grey;
   min-height: 1000px;
   background-color: $sand;
@@ -150,7 +150,7 @@ button {
     }
   }
 
-  #hamburger {
+  #hamburgerButton {
     display: none;
   }
 
@@ -165,7 +165,7 @@ button {
   min-height: 380px;
   width: 100%;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image.png");
+  background-image: url('../public/images/heros/hero-image.png');
   background-position: center;
 }
 
