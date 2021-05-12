@@ -18,7 +18,7 @@ data.restaurants.forEach((restaurant) => {
         ${restaurant.description}
         </p>
     </div>
-    </div>  
+    </div>      
   `;
   document.querySelector('#restos').innerHTML = html;
 });
