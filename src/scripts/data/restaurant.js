@@ -8,14 +8,14 @@ data.restaurants.forEach((restaurant) => {
     <div class="foto">
         <img
         src=${restaurant.pictureId}
-        alt="Foto ${restaurant.name}}"
+        alt="${restaurant.name}}"
         />
     </div>
     <p class="rating">Rating: ${restaurant.rating}</p>
     <div class="content">
         <h3 class="resto-title"><a href="#">${restaurant.name}</a></h3>
         <p class="resto-desc">
-        ${restaurant.description.substring(0, 200)}...
+        ${restaurant.description}
         </p>
     </div>
     </div>  

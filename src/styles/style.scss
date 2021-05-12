@@ -4,7 +4,7 @@ $grey: #2c2c2c;
 $sand: #fff3ef;
 $mobile: 620px;
 $medium: 970px;
-$smooth-shadow: 0 0px 91px -25px rgba(29, 29, 29, 0.13);
+$smooth-shadow: 0 0 91px -25px rgba(29, 29, 29, 0.13);
 $animasi: 300ms ease-in-out;
 
 @mixin grid-size($n) {
@@ -15,6 +15,14 @@ $animasi: 300ms ease-in-out;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
+}
+
+@mixin limitText($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
 }
 
 @mixin hamburger-show {
@@ -293,6 +301,10 @@ button {
                 transition: $animasi;
               }
             }
+          }
+
+          .resto-desc {
+            @include limitText(4);
           }
         }
       }
