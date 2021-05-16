@@ -11,7 +11,7 @@ data.restaurants.forEach((restaurant) => {
         alt="${restaurant.name}}"
         />
     </div>
-    <p class="resto-item__rate">Rating: ${restaurant.rating}</p>
+    <p class="resto-item__rate">⭐ ${restaurant.rating}</p>
     <div class="content">
         <h3 class="resto-item__title"><a href="#">${restaurant.name}</a></h3>
         <p class="resto-item__desc">

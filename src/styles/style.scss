@@ -49,7 +49,11 @@ $animasi: 300ms ease-in-out;
 
         a {
           color: $white;
-          border-bottom: 3px solid rgba($color: $orange, $alpha: 0.2);
+          line-height: 44px;
+          &:hover {
+            border-bottom: 3px solid rgba($color: $orange, $alpha: 0.2);
+            transition: $animasi;
+          }
         }
       }
     }
@@ -141,9 +145,20 @@ button {
     min-height: 80px;
     width: 100%;
 
+    .nav {
+      height: 80px;
+    }
+
     .nav__item {
       display: inline-block;
-      margin-left: 60px;
+      // margin-left: 60px;
+      padding: 0 30px;
+      transition: $animasi;
+
+      &:hover {
+        background-color: rgba(29, 29, 29, 0.09);
+        transition: $animasi;
+      }
 
       a {
         display: block;
@@ -151,7 +166,7 @@ button {
         color: $white;
         font-weight: 600;
         min-height: 44px;
-        line-height: 44px;
+        line-height: 80px;
         min-width: 44px;
         text-align: center;
       }
@@ -271,7 +286,7 @@ button {
         }
 
         .resto-item__rate {
-          margin: 10px 0;
+          margin: 12px 0 0 0;
           padding-left: 20px;
           font-weight: 600;
           color: rgb(116, 116, 116);
