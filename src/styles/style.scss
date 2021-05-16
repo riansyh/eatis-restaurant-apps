@@ -35,21 +35,21 @@ $animasi: 300ms ease-in-out;
     z-index: 99;
     transform: translate(-250px, 0);
     transition: transform 0.3s ease-in-out;
-    background-color: $white;
+    background-color: $grey;
     box-shadow: $smooth-shadow;
 
-    .nav-list {
+    .nav__list {
       margin-top: 40px;
       margin-right: 40px;
-      .nav-item {
+      .nav__item {
         display: block;
-        border-bottom: 3px solid rgba($color: $orange, $alpha: 0.2);
         height: 60px;
         line-height: 60px;
         margin-left: 30px;
 
         a {
-          color: $orange;
+          color: $white;
+          border-bottom: 3px solid rgba($color: $orange, $alpha: 0.2);
         }
       }
     }
@@ -141,7 +141,7 @@ button {
     min-height: 80px;
     width: 100%;
 
-    .nav-item {
+    .nav__item {
       display: inline-block;
       margin-left: 60px;
 
@@ -177,12 +177,12 @@ button {
   background-position: center;
 }
 
-.hero-inner {
+.hero__inner {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 30px;
 
-  .hero-title {
+  .hero__title {
     color: $white;
     font-weight: 500;
     font-size: 4em;
@@ -190,7 +190,7 @@ button {
     line-height: 120%;
   }
 
-  .hero-tagline {
+  .hero__tagline {
     color: $white;
     margin-top: 16px;
     font-size: 22px;
@@ -215,11 +215,11 @@ button {
       .text {
         margin-left: 100px;
         padding-right: 40px;
-        .welcome-title {
+        .welcome__title {
           font-size: 2.3em;
           margin-bottom: 20px;
         }
-        .welcome-desc {
+        .welcome__desc {
           padding-right: 40px;
         }
       }
@@ -230,19 +230,19 @@ button {
     @include container();
     padding-top: 0;
 
-    .katalog-title {
+    .katalog__title {
       font-size: 36px;
       text-align: center;
       color: $grey;
     }
 
-    .restos {
+    .restaurant {
       display: grid;
       @include grid-size(3);
       margin: 40px 0;
       gap: 30px;
 
-      .resto {
+      .resto-item {
         min-height: 400px;
         display: flex;
         flex-direction: column;
@@ -257,7 +257,7 @@ button {
           transition: $animasi;
         }
 
-        .location-tag {
+        .resto-item__location-tag {
           position: absolute;
           z-index: 80;
           padding: 8px 20px;
@@ -270,14 +270,14 @@ button {
           box-shadow: $smooth-shadow;
         }
 
-        .rating {
+        .resto-item__rate {
           margin: 10px 0;
           padding-left: 20px;
           font-weight: 600;
           color: rgb(116, 116, 116);
         }
 
-        .foto {
+        .resto-item__photo {
           max-height: 300px;
           overflow: hidden;
           display: flex;
@@ -286,24 +286,20 @@ button {
         }
         .content {
           margin: 0 20px 30px 20px;
-          .resto-title {
+          .resto-item__title {
             font-size: 24px;
             a {
               text-decoration: none;
-              color: $grey;
+              color: $orange;
               transition: $animasi;
               min-height: 44px;
               line-height: 44px;
               display: block;
               width: fit-content;
-              &:focus {
-                color: $orange;
-                transition: $animasi;
-              }
             }
           }
 
-          .resto-desc {
+          .resto-item__desc {
             @include limitText(4);
           }
         }
@@ -336,11 +332,11 @@ button {
           text-align: center;
           padding: 0;
 
-          .welcome-title {
+          .welcome__title {
             font-size: 2em;
           }
 
-          .welcome-desc {
+          .welcome__desc {
             padding: 0 25px;
           }
         }
@@ -353,10 +349,10 @@ button {
     }
 
     .katalog {
-      .katalog-title {
+      .katalog__title {
         font-size: 32px;
       }
-      .restos {
+      .restaurant {
         @include grid-size(2);
       }
     }
@@ -372,12 +368,12 @@ button {
       min-height: 70px;
     }
   }
-  .hero-inner {
-    .hero-title {
+  .hero__inner {
+    .hero__title {
       font-size: 2.6em;
     }
 
-    .hero-tagline {
+    .hero__tagline {
       margin-top: 16px;
       font-size: 20px;
     }
@@ -405,10 +401,10 @@ button {
     }
 
     .katalog {
-      .katalog-title {
+      .katalog__title {
         font-size: 32px;
       }
-      .restos {
+      .restaurant {
         @include grid-size(1);
       }
     }
