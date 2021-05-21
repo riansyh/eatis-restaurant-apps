@@ -213,33 +213,33 @@ button {
   }
 }
 
-.content {
-  margin: 0 auto;
+.welcome {
+  min-height: 300px;
+  margin: 60px 0;
 
-  .welcome {
-    min-height: 300px;
-    margin: 60px 0;
+  .container {
+    display: flex;
 
-    .container {
-      display: flex;
+    img {
+      width: 300px;
+    }
 
-      img {
-        width: 300px;
+    .text {
+      margin-left: 100px;
+      padding-right: 40px;
+      .welcome__title {
+        font-size: 2.3em;
+        margin-bottom: 20px;
       }
-
-      .text {
-        margin-left: 100px;
+      .welcome__desc {
         padding-right: 40px;
-        .welcome__title {
-          font-size: 2.3em;
-          margin-bottom: 20px;
-        }
-        .welcome__desc {
-          padding-right: 40px;
-        }
       }
     }
   }
+}
+
+.content {
+  margin: 0 auto;
 
   .katalog {
     @include container();
@@ -333,36 +333,36 @@ button {
 //medium screen
 @media screen and (max-width: $medium) {
   @include hamburger-show();
-  .content {
-    .welcome {
-      margin: 0;
-      .container {
-        flex-direction: column;
-        align-items: center;
+  .welcome {
+    margin: 0;
+    .container {
+      flex-direction: column;
+      align-items: center;
 
-        .text {
-          order: 1;
-          margin-bottom: 50px;
-          margin-left: 0;
-          text-align: center;
-          padding: 0;
+      .text {
+        order: 1;
+        margin-bottom: 50px;
+        margin-left: 0;
+        text-align: center;
+        padding: 0;
 
-          .welcome__title {
-            font-size: 2em;
-          }
-
-          .welcome__desc {
-            padding: 0 25px;
-          }
+        .welcome__title {
+          font-size: 2em;
         }
 
-        img {
-          order: 2;
-          width: 250px;
+        .welcome__desc {
+          padding: 0 25px;
         }
       }
-    }
 
+      img {
+        order: 2;
+        width: 250px;
+      }
+    }
+  }
+
+  .content {
     .katalog {
       .katalog__title {
         font-size: 32px;
@@ -383,6 +383,7 @@ button {
       min-height: 70px;
     }
   }
+
   .hero__inner {
     .hero__title {
       font-size: 2.6em;
@@ -394,27 +395,27 @@ button {
     }
   }
 
-  .content {
-    .welcome {
-      margin: 0;
-      .container {
-        flex-direction: column;
-        align-items: center;
+  .welcome {
+    margin: 0;
+    .container {
+      flex-direction: column;
+      align-items: center;
 
-        .text {
-          order: 1;
-          margin-bottom: 50px;
-          margin-left: 0;
-          text-align: center;
-        }
+      .text {
+        order: 1;
+        margin-bottom: 50px;
+        margin-left: 0;
+        text-align: center;
+      }
 
-        img {
-          order: 2;
-          width: 250px;
-        }
+      img {
+        order: 2;
+        width: 250px;
       }
     }
+  }
 
+  .content {
     .katalog {
       .katalog__title {
         font-size: 32px;
