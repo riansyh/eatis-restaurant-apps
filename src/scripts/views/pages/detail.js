@@ -14,7 +14,6 @@ const detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSource.detailRestaurant(url.id);
     const detailContainer = document.querySelector('#detail-restaurant');
-    console.log(restaurant);
     detailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
   },
 };

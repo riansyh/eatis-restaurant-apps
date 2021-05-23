@@ -39,7 +39,6 @@ const home = {
   async afterRender() {
     const restaurants = await RestaurantSource.restaurantList();
     const restaurantsContainer = document.querySelector('#restaurant');
-    console.log(restaurants);
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
     });
