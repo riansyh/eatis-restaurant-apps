@@ -456,8 +456,7 @@ button {
     }
 
     .customer-reviews {
-      display: flex;
-      flex-direction: column;
+      @include flexColumn();
 
       .review-card {
         background-color: $white;
@@ -465,7 +464,6 @@ button {
         border-radius: 15px;
         margin: 20px;
         box-shadow: $smooth-shadow;
-        justify-content: space-between;
 
         .review__header {
           position: relative;
@@ -475,6 +473,10 @@ button {
           margin-bottom: 20px;
           color: $orange;
           overflow: none !important;
+
+          .review-date {
+            font-size: 0.8em;
+          }
 
           h5 {
             font-size: 1.2em;
@@ -491,11 +493,69 @@ button {
             text-align: left;
             align-items: baseline;
           }
+        }
+      }
 
-          .review-date {
-            font-size: 0.8em;
+      .review-form {
+        width: 100%;
+        padding: 20px;
+        @include flexColumn();
+        justify-content: center;
+
+        .input-form {
+          label {
+            font-weight: 500;
+            color: $grey;
+            font-size: 1.3em;
+          }
+
+          input,
+          textarea {
+            border: none;
+            border-radius: 12px;
+            padding: 0 10px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            margin: 8px 0 8px 0;
+          }
+
+          #reviewerName {
+            height: 44px;
+          }
+
+          #reviewContent {
+            height: 80px;
+            padding: 10px;
           }
         }
+
+        .submit {
+          min-height: 44px;
+          margin: 20px auto;
+          border: none;
+          background-color: $orange;
+          color: $white;
+          font-size: 1.2em;
+          font-weight: 500;
+          border-radius: 12px;
+          padding: 0 20px;
+          &:hover {
+            cursor: pointer;
+          }
+
+          &:focus {
+            background-color: #e47556;
+          }
+        }
+
+        #reviewContent {
+          width: 100%;
+        }
+      }
+
+      .add-review__title {
+        text-align: center;
+        margin-top: 30px;
       }
     }
   }

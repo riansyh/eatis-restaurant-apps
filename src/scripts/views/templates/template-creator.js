@@ -81,9 +81,30 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const createNewReview = () => `
+<div class="customer-reviews">
+<h2 class="add-review__title">Add New Review</h2>
+<div class="review-form">
+  <div class="input-form">
+    <div class="review-form__header">
+        <label for="name">Name</label> <br>
+        <input type="text" name="name" id="reviewerName" />
+    </div>
+
+    <div class="review-form__main">
+        <label for="content">Review</label> <br>
+        <textarea name="content" id="reviewContent"></textarea>
+    </div>
+  </div>
+  <button class="submit" id="submit" aria-label="Submit your review now">Submit</button>
+</div>
+</div>
+`;
+
 export {
   createRestaurantDetailTemplate,
   createRestaurantCard,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createNewReview,
 };
