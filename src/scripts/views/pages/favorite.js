@@ -1,10 +1,25 @@
-// const favorite = {
-//   async render() {
-//     return `
-//       `;
-//   },
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import { createRestaurantCard } from '../templates/template-creator';
 
-//   async afterRender() {},
-// };
+const favorite = {
+  async render() {
+    return `
+    <section class="content">
+    <div class="katalog">
+        <h1 class="katalog__title favorite">Your Favorite Restaurant</h1>
+        <div class="restaurant" id="restaurant"></div>
+    </div>
+    </section>
+      `;
+  },
 
-// export default favorite;
+  async afterRender() {
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+    const restaurantsContainer = document.querySelector('#restaurant');
+    restaurants.forEach((restaurant) => {
+      restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
+    });
+  },
+};
+
+export default favorite;

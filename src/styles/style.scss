@@ -140,6 +140,10 @@ button {
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.644);
 }
 
+.favorite {
+  margin-top: 30px;
+}
+
 .header {
   background-color: $orange;
 
@@ -502,6 +506,27 @@ button {
   background-color: $grey;
   color: $white;
   text-align: center;
+}
+
+/*
+   Like
+*/
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: $orange;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $smooth-shadow;
 }
 
 //medium screen
