@@ -23,11 +23,12 @@ const reviewCards = (reviews) => {
     customerReview += `
     <div class="review-card">
         <div class="review__header">
+            <img src="./images/quote.png" alt="quote logo">
             <h5 class="reviewer-name">${review.name}</h5>
             <p class="review-date">${review.date}</p>
         </div>
         <p class="review__main">
-            ${review.review}
+            "${review.review}"
         </p>
     </div>      
       `;

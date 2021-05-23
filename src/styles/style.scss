@@ -459,19 +459,27 @@ button {
         background-color: $white;
         padding: 20px;
         border-radius: 15px;
-        overflow: hidden;
         margin: 20px;
         box-shadow: $smooth-shadow;
         justify-content: space-between;
 
         .review__header {
+          position: relative;
           display: flex;
           align-items: center;
           justify-content: space-between;
           margin-bottom: 20px;
+          color: $orange;
+          overflow: none !important;
 
           h5 {
             font-size: 1.2em;
+          }
+
+          img {
+            position: absolute;
+            top: -26px;
+            right: -32px;
           }
 
           @media screen and (max-width: 380px) {
