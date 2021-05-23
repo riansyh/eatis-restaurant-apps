@@ -1,22 +1,61 @@
 import CONFIG from '../../global/config';
+import { categoriesList, menuList, reviewCards } from './detail-creator';
 
 // PERLU DIRAPIHIN
 const createRestaurantDetailTemplate = (restaurant) => `
-    <img src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}" alt="${restaurant.name}"></img>
-    <p>${restaurant.address}</p>
-    <p>${restaurant.categories}</p>
-    <p>${restaurant.menus.foods}</p>
-    <p>${restaurant.menus.drinks}</p>
-    <p>${restaurant.rating}</p>
-    <p>${restaurant.customerReviews}</p>
-`;
+<div class="restaurant-detail">
+    <div class="restaurant-photo">
+        <img src="${CONFIG.BASE_IMAGE_URL}medium/${
+  restaurant.pictureId
+}"  alt="${restaurant.name}"></img>
+    </div>  
+    <div class="details">
+        <h2 class="restaurant__name">${restaurant.name}</h2>
+        <div class="restaurant__categories">
+            ${categoriesList(restaurant.categories)}
+        </div>
+        <div class="restaurant__address">
+            <img src="./logo/location.svg" alt="logo location pin" class="location-logo" />
+            <p class="address">${restaurant.address}</p>
+        </div>
+        <div class="restaurant__rating">
+            <img src="./logo/star.svg" alt="logo star" class="star-logo" />
+            <p class="rating">${restaurant.rating}</p>
+        </div>
+    </div>
+</div>
+
+<h2 class="menus__title">Menus</h2>
+<div class="restaurant-menus">
+  <div class="foods">
+    <h3 class="foods__title">Foods</h3>
+    <ul class="foods__list">
+        ${menuList(restaurant.menus.foods)}
+    </ul>
+    <img src="./images/foods.png" alt="food ilustration">
+  </div>
+  
+  <div class="drinks">
+    <h3 class="drinks__title">Drinks</h3>
+    <ul class="drinks__list">
+      ${menuList(restaurant.menus.drinks)}
+    </ul>
+    <img src="./images/drinks.png" alt="drink ilustration">
+  </div>
+</div>
+  
+<h2 class="customer-review__title">Customer Review</h2>
+  <div class="customer-reviews">
+    ${reviewCards(restaurant.customerReviews)}
+  </div>
+  `;
 
 const createRestaurantCard = (restaurant) => `
-    <div class="resto-item">
+  <div class="resto-item">
     <h3 class="resto-item__location-tag">${restaurant.city}</h3>
     <div class="resto-item__photo">
         <img
-        src=${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}
+        src=${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}
         alt="${restaurant.name}}"
         />
     </div>

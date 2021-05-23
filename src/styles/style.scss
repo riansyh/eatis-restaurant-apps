@@ -2,10 +2,12 @@ $orange: #fc8868;
 $white: #fcfcfc;
 $grey: #2c2c2c;
 $sand: #fff3ef;
+$light-orange: #fad375;
 $mobile: 620px;
 $medium: 970px;
 $smooth-shadow: 0 0 91px -25px rgba(29, 29, 29, 0.13);
 $animasi: 300ms ease-in-out;
+$title-size: 2em;
 
 @mixin grid-size($n) {
   grid-template-columns: repeat($n, 1fr);
@@ -15,6 +17,11 @@ $animasi: 300ms ease-in-out;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin limitText($line) {
@@ -88,6 +95,7 @@ body {
   color: $grey;
   min-height: 1000px;
   background-color: $sand;
+  @include flexColumn();
 }
 
 button {
@@ -238,6 +246,10 @@ button {
   }
 }
 
+#mainContent {
+  flex: 1;
+}
+
 .content {
   margin: 0 auto;
 
@@ -259,8 +271,7 @@ button {
 
       .resto-item {
         min-height: 400px;
-        display: flex;
-        flex-direction: column;
+        @include flexColumn();
         border-radius: 20px;
         overflow: hidden;
         background-color: $white;
@@ -323,6 +334,161 @@ button {
   }
 }
 
+//Detail Page
+#mainContent {
+  .detail-container {
+    h2 {
+      font-size: $title-size;
+      color: $orange;
+    }
+
+    h4 {
+      font-weight: 600;
+    }
+
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+
+    .restaurant-detail {
+      display: flex;
+      flex-direction: row;
+      max-width: 100%;
+      align-items: center;
+
+      .restaurant-photo {
+        flex-basis: 70%;
+        overflow: hidden;
+        min-height: 400px;
+        margin: 0 30px 0 0;
+
+        img {
+          width: 100%;
+          border-radius: 20px;
+          box-shadow: $smooth-shadow;
+        }
+      }
+
+      .details {
+        flex-basis: 30%;
+        @include flexColumn();
+
+        .restaurant__name {
+          font-size: 48px;
+          color: $orange;
+        }
+
+        .restaurant__categories {
+          display: flex;
+          margin: 10px 0 0 0;
+
+          .restaurant__category {
+            padding: 8px 20px;
+            border-radius: 7px;
+            background-color: $light-orange;
+            margin: 0 10px 0 0;
+            color: $grey;
+          }
+        }
+
+        .restaurant__address {
+          margin-top: 20px !important;
+        }
+
+        .restaurant__address,
+        .restaurant__rating {
+          display: flex;
+          margin: 5px 0;
+          align-items: center;
+        }
+
+        .address,
+        .rating {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .menus__title,
+    .customer-review__title {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .restaurant-menus {
+      display: flex;
+      justify-content: center;
+
+      .foods,
+      .drinks {
+        position: relative;
+        width: 50%;
+        padding: 20px 20px 40px 20px;
+        margin: 20px;
+        background-color: $white;
+        border-radius: 10px;
+        min-height: 300px;
+        box-shadow: $smooth-shadow;
+
+        h3 {
+          font-size: 1.6em;
+          color: $grey;
+          text-align: center;
+        }
+
+        ul {
+          margin: 0 30px;
+          li {
+            font-size: 1.2em;
+          }
+        }
+
+        img {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+        }
+      }
+    }
+
+    .customer-reviews {
+      display: flex;
+      flex-direction: column;
+
+      .review-card {
+        background-color: $white;
+        padding: 20px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 20px;
+        box-shadow: $smooth-shadow;
+        justify-content: space-between;
+
+        .review__header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+
+          h5 {
+            font-size: 1.2em;
+          }
+
+          @media screen and (max-width: 380px) {
+            flex-direction: column;
+            text-align: left;
+            align-items: baseline;
+          }
+
+          .review-date {
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
 .footer {
   padding: 20px;
   background-color: $grey;
@@ -347,7 +513,7 @@ button {
         padding: 0;
 
         .welcome__title {
-          font-size: 2em;
+          font-size: $title-size;
         }
 
         .welcome__desc {
@@ -372,12 +538,46 @@ button {
       }
     }
   }
+
+  #mainContent {
+    h2 {
+      font-size: $title-size !important;
+    }
+
+    .restaurant-menus {
+      .foods,
+      .drinks {
+        width: auto !important;
+      }
+    }
+
+    .detail-container {
+      margin: 0 auto;
+      .restaurant-detail {
+        flex-direction: column;
+        align-items: stretch;
+        .restaurant-photo {
+          margin: 0;
+          min-height: 0;
+
+          img {
+            border-radius: 15px;
+          }
+        }
+        .restaurant__category {
+          padding: 5px 10px !important;
+        }
+      }
+    }
+
+    .restaurant-menus {
+      flex-direction: column;
+    }
+  }
 }
 
 //Mobile screen
 @media screen and (max-width: $mobile) {
-  @include hamburger-show();
-
   .header {
     .container {
       min-height: 70px;
@@ -395,26 +595,6 @@ button {
     }
   }
 
-  .welcome {
-    margin: 0;
-    .container {
-      flex-direction: column;
-      align-items: center;
-
-      .text {
-        order: 1;
-        margin-bottom: 50px;
-        margin-left: 0;
-        text-align: center;
-      }
-
-      img {
-        order: 2;
-        width: 250px;
-      }
-    }
-  }
-
   .content {
     .katalog {
       .katalog__title {
@@ -422,6 +602,29 @@ button {
       }
       .restaurant {
         @include grid-size(1);
+      }
+    }
+  }
+
+  #mainContent {
+    .restaurant-menus {
+      .foods,
+      .drinks {
+        margin: 30px 0 !important;
+        width: 100% !important;
+
+        img {
+          position: absolute;
+          top: -41px !important;
+          right: -22px !important;
+          z-index: 0;
+        }
+      }
+    }
+
+    .customer-reviews {
+      .review-card {
+        margin: 20px 0 !important;
       }
     }
   }

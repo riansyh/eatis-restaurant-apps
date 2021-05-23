@@ -4,6 +4,7 @@ import { createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const detail = {
   async render() {
+    window.scrollTo(0, 0);
     return `
       <div id="detail-restaurant" class="detail-container"></div>        
       `;
