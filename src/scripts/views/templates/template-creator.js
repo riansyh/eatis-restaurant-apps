@@ -16,7 +16,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
         </div>
         <div class="restaurant__address">
             <img src="./logo/location.svg" alt="logo location pin" class="location-logo" />
-            <p class="address">${restaurant.address}</p>
+            <p class="address">${restaurant.address}, ${restaurant.city}</p>
         </div>
         <div class="restaurant__rating">
             <img src="./logo/star.svg" alt="logo star" class="star-logo" />
