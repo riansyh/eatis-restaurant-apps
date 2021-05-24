@@ -5,6 +5,7 @@ import { createRestaurantCard } from '../templates/template-creator';
 const favorite = {
   async render() {
     showLoading();
+    window.scrollTo(0, 0);
     return `
     <section class="content">
     <div class="katalog">
