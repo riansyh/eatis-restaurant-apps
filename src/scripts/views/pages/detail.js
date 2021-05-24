@@ -7,9 +7,11 @@ import {
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import addNewReview from '../../utils/add-new-review';
+import { hideLoading, showLoading } from '../../utils/loader-initiator';
 
 const detail = {
   async render() {
+    showLoading();
     window.scrollTo(0, 0);
     return `
       <div id="detail-restaurant" class="detail-container"></div>
@@ -30,6 +32,7 @@ const detail = {
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant,
     });
+    hideLoading();
   },
 
   async _getRestaurantData(url) {

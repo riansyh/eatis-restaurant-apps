@@ -1,8 +1,10 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import { hideLoading, showLoading } from '../../utils/loader-initiator';
 import { createRestaurantCard } from '../templates/template-creator';
 
 const favorite = {
   async render() {
+    showLoading();
     return `
     <section class="content">
     <div class="katalog">
@@ -19,6 +21,7 @@ const favorite = {
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
     });
+    hideLoading();
   },
 };
 

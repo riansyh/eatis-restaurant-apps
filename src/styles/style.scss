@@ -297,7 +297,6 @@ button {
 
         .resto-item__location-tag {
           position: absolute;
-          z-index: 8;
           padding: 8px 20px;
           margin-top: 25px;
           background-color: $orange;
@@ -794,11 +793,59 @@ button {
   }
 }
 
+.loading-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 8;
+  background-color: $sand;
+  #loading {
+    width: 4rem;
+    height: 4rem;
+    border: 12px solid $light-orange;
+    border-top: 12px solid $orange;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+  }
+  #loading.visible {
+    visibility: visible;
+    transition: 100ms ease-out;
+  }
+}
+
+.hidden {
+  transition: 200ms ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

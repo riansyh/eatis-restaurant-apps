@@ -1,8 +1,10 @@
 import RestaurantSource from '../../data/restaurant-source';
+import { hideLoading, showLoading } from '../../utils/loader-initiator';
 import { createRestaurantCard } from '../templates/template-creator';
 
 const home = {
   async render() {
+    showLoading();
     return `
       <div class="hero">
         <div class="hero__inner">
@@ -42,6 +44,7 @@ const home = {
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
     });
+    hideLoading();
   },
 };
 
