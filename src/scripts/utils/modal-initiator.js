@@ -44,6 +44,7 @@ const modalInitiator = {
         message = {
           title: 'Berhasil Ditambahkan!',
           content: 'Hore review yang kamu tulis berhasil ditambahkan',
+          color: 'green',
         };
         break;
       case 'fail':
@@ -51,6 +52,7 @@ const modalInitiator = {
           title: 'Gagal Menambahkan!',
           content:
             'Maaf review yang kamu tulis tidak berhasil ditambahkan, periksa koneksi internet kamu!',
+          color: 'orange',
         };
         break;
       case 'empty':
@@ -58,12 +60,14 @@ const modalInitiator = {
           title: 'Data Harus Diisi!',
           content:
             'Untuk menambahkan review kamu harus mengisi nama dan review dengan jelas',
+          color: 'orange',
         };
         break;
       default:
         message = {
           title: 'Berhasil Ditambahkan!',
           content: 'Hore review yang kamu tulis berhasil ditambahkan',
+          color: 'green',
         };
         break;
     }

@@ -2,12 +2,16 @@ $orange: #fc8868;
 $white: #fcfcfc;
 $grey: #2c2c2c;
 $sand: #fff3ef;
+$green: #88b337;
 $light-orange: #fad375;
 $mobile: 620px;
 $medium: 970px;
 $smooth-shadow: 0 0 91px -25px rgba(29, 29, 29, 0.13);
 $animasi: 300ms ease-in-out;
-$title-size: 2em;
+$title-size: 1.7em;
+$bigtitle-mobile: 32px;
+$title-mobile: 24px;
+$body-mobile: 16px;
 
 @mixin grid-size($n) {
   grid-template-columns: repeat($n, 1fr);
@@ -115,6 +119,10 @@ button {
 
 .highlight {
   color: $orange;
+}
+
+.green {
+  color: $green !important;
 }
 
 .skip-link {
@@ -342,7 +350,6 @@ button {
 #mainContent {
   .detail-container {
     h2 {
-      font-size: $title-size;
       color: $orange;
     }
 
@@ -378,7 +385,7 @@ button {
         @include flexColumn();
 
         .restaurant__name {
-          font-size: 48px;
+          font-size: 40px;
           color: $orange;
         }
 
@@ -391,6 +398,7 @@ button {
             border-radius: 7px;
             background-color: $light-orange;
             margin: 0 10px 0 0;
+            font-size: 0.8em;
             color: $grey;
           }
         }
@@ -416,7 +424,8 @@ button {
     .menus__title,
     .customer-review__title {
       text-align: center;
-      margin: 20px auto;
+      margin: 32px 0 12px 0;
+      font-size: 2em;
     }
 
     .restaurant-menus {
@@ -431,19 +440,21 @@ button {
         margin: 20px;
         background-color: $white;
         border-radius: 10px;
-        min-height: 300px;
         box-shadow: $smooth-shadow;
 
         h3 {
-          font-size: 1.6em;
+          font-size: 1.2em;
           color: $grey;
           text-align: center;
         }
 
         ul {
-          margin: 0 30px;
+          margin: 10px 30px;
           li {
             font-size: 1.2em;
+            @media screen and (max-width: $mobile) {
+              font-size: $body-mobile;
+            }
           }
         }
 
@@ -506,7 +517,7 @@ button {
           label {
             font-weight: 500;
             color: $grey;
-            font-size: 1.3em;
+            font-size: 1em;
           }
 
           input,
@@ -514,14 +525,18 @@ button {
             border: none;
             border-radius: 12px;
             padding: 0 10px;
-            font-size: 14px;
+            font-size: 16px;
             font-family: 'Poppins', sans-serif;
             margin: 8px 0 8px 0;
           }
 
           #reviewerName {
             height: 44px;
+            width: 40%;
             max-width: 100%;
+            @media screen and (max-width: $mobile) {
+              width: 100%;
+            }
           }
 
           #reviewContent {
@@ -536,8 +551,8 @@ button {
           border: none;
           background-color: $orange;
           color: $white;
-          font-size: 1.2em;
-          font-weight: 500;
+          font-size: 1em;
+          font-weight: 600;
           border-radius: 12px;
           padding: 0 20px;
           &:hover {
@@ -557,6 +572,7 @@ button {
       .add-review__title {
         text-align: center;
         margin-top: 30px;
+        font-size: 2em;
       }
     }
   }
@@ -616,7 +632,7 @@ button {
     align-items: center;
     justify-content: space-around;
     box-shadow: $smooth-shadow;
-    animation: fadeIn 300ms ease-in-out;
+    animation: fadeIn 300ms ease-in;
 
     .modal__body {
       height: 70%;
@@ -624,7 +640,7 @@ button {
       margin: 16px;
       h2 {
         color: $orange;
-        font-size: 2.5em;
+        font-size: 2em;
         margin-bottom: 10px;
       }
     }
@@ -667,7 +683,7 @@ button {
 
       img {
         order: 2;
-        width: 250px;
+        width: 200px;
       }
     }
   }
@@ -675,7 +691,7 @@ button {
   .content {
     .katalog {
       .katalog__title {
-        font-size: 32px;
+        font-size: $title-mobile;
       }
       .restaurant {
         @include grid-size(2);
@@ -685,7 +701,7 @@ button {
 
   #mainContent {
     h2 {
-      font-size: $title-size !important;
+      font-size: $title-mobile !important;
     }
 
     .restaurant-menus {
@@ -725,25 +741,26 @@ button {
   .header {
     .container {
       min-height: 70px;
+
+      img {
+        transform: scale(0.8);
+      }
     }
   }
 
   .hero__inner {
     .hero__title {
-      font-size: 2.6em;
+      font-size: $bigtitle-mobile;
     }
 
     .hero__tagline {
       margin-top: 16px;
-      font-size: 20px;
+      font-size: $body-mobile;
     }
   }
 
   .content {
     .katalog {
-      .katalog__title {
-        font-size: 32px;
-      }
       .restaurant {
         @include grid-size(1);
       }
@@ -760,8 +777,11 @@ button {
         img {
           position: absolute;
           top: -41px !important;
-          right: -22px !important;
+          right: -20px !important;
           z-index: 0;
+          @media screen and (max-width: $mobile) {
+            transform: scale(0.8);
+          }
         }
       }
     }

@@ -104,7 +104,7 @@ const createPopupModal = (data) => `
 <div class="modal" id="modal">
   <div class="modal__content">
     <div class="modal__body">
-      <h2>${data.title}</h2>
+      <h2 class="${data.color}">${data.title}</h2>
       <p>${data.content}</p>
     </div>
     <button class="modal__button" id="modalButton">Oke!</button>
