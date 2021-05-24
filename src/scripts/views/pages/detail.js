@@ -14,6 +14,7 @@ const detail = {
     return `
       <div id="detail-restaurant" class="detail-container"></div>
       <div id="likeButtonContainer"></div>
+      <div id="modalContainer"></div>
       `;
   },
 
@@ -24,6 +25,7 @@ const detail = {
     detailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
     detailContainer.innerHTML += createNewReview();
     addNewReview.post(url);
+
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant,

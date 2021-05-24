@@ -106,7 +106,7 @@ button {
 .sticky {
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 9;
 }
 
 .container {
@@ -289,7 +289,7 @@ button {
 
         .resto-item__location-tag {
           position: absolute;
-          z-index: 80;
+          z-index: 8;
           padding: 8px 20px;
           margin-top: 25px;
           background-color: $orange;
@@ -568,9 +568,8 @@ button {
   text-align: center;
 }
 
-/*
-   Like
-*/
+//like
+
 .like {
   font-size: 18px;
   position: fixed;
@@ -587,6 +586,57 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: $smooth-shadow;
+}
+
+//modal
+.modal {
+  // display: none;
+  transition: 300ms ease-in-out;
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+  .modal__content {
+    @include flexColumn();
+    background-color: $white;
+    margin: auto auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    min-height: 250px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: $smooth-shadow;
+    animation: fadeIn 300ms ease-in-out;
+
+    .modal__body {
+      height: 70%;
+      text-align: center;
+      margin: 16px;
+      h2 {
+        color: $orange;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+    }
+    button {
+      border: none;
+      padding: 5px 30px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1em;
+      color: $grey;
+      background-color: $light-orange;
+    }
+  }
 }
 
 //medium screen
@@ -720,5 +770,14 @@ button {
         margin: 20px 0 !important;
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

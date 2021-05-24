@@ -1,4 +1,5 @@
 import RestaurantSource from '../data/restaurant-source';
+import modalInitiator from './modal-initiator';
 
 const addNewReview = {
   post(url) {
@@ -12,8 +13,27 @@ const addNewReview = {
         name: reviewerName.value,
         review: reviewContent.value,
       };
-      RestaurantSource.addReview(newReview);
+      const isEmpty = this._checkValue(reviewerName.value, reviewContent.value);
+      console.log(reviewerName.value);
+      console.log(isEmpty);
+      if (!isEmpty) {
+        RestaurantSource.addReview(newReview);
+      } else {
+        modalInitiator.init({
+          modalContainer: document.querySelector('#modalContainer'),
+          status: 'empty',
+          reload: false,
+        });
+      }
     });
+  },
+
+  _checkValue(name, content) {
+    let error = false;
+    if (name === '' || content === '') {
+      error = true;
+    }
+    return error;
   },
 };
 

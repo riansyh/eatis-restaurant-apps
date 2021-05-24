@@ -95,18 +95,19 @@ const createNewReview = () => `
         <textarea name="content" id="reviewContent"></textarea>
     </div>
   </div>
-  <button class="submit" id="submit" aria-label="Submit your review now">Submit</button>
+  <button class="submit" id="submit" aria-label="Submit my review">Add Review</submit>
 </div>
 </div>
 `;
 
-const createPopupModal = (content) => `
+const createPopupModal = (data) => `
 <div class="modal" id="modal">
   <div class="modal__content">
-    <p class="modal__text">${content}</p>
-  </div>
-  <div class="modal__foot">
-    <button class="modal__button" id="modal__button">Oke!</button>
+    <div class="modal__body">
+      <h2>${data.title}</h2>
+      <p>${data.content}</p>
+    </div>
+    <button class="modal__button" id="modalButton">Oke!</button>
   </div>
 </div>  
 `;

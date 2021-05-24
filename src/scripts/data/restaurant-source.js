@@ -1,5 +1,6 @@
 import API_ENDPOINT from '../global/api-endpoint';
 import CONFIG from '../global/config';
+import modalInitiator from '../utils/modal-initiator';
 
 class RestaurantSource {
   static async restaurantList() {
@@ -15,17 +16,28 @@ class RestaurantSource {
   }
 
   static async addReview(data) {
-    console.log(JSON.stringify(data));
-    const response = await fetch(API_ENDPOINT.ADD_REVIEW, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'x-api-key': CONFIG.API_KEY,
-        'Content-Type': 'application/json',
-      },
-    });
-    const responseJson = await response.json();
-    console.log(responseJson);
+    try {
+      await fetch(API_ENDPOINT.ADD_REVIEW, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'x-api-key': CONFIG.API_KEY,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      modalInitiator.init({
+        modalContainer: document.querySelector('#modalContainer'),
+        status: 'success',
+        reload: true,
+      });
+    } catch (error) {
+      modalInitiator.init({
+        modalContainer: document.querySelector('#modalContainer'),
+        status: 'fail',
+        reload: true,
+      });
+    }
   }
 }
 
