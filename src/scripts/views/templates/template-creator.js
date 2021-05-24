@@ -1,7 +1,6 @@
 import CONFIG from '../../global/config';
 import { categoriesList, menuList, reviewCards } from './detail-creator';
 
-// PERLU DIRAPIHIN
 const createRestaurantDetailTemplate = (restaurant) => `
 <div class="restaurant-detail">
     <div class="restaurant-photo">
@@ -101,10 +100,22 @@ const createNewReview = () => `
 </div>
 `;
 
+const createPopupModal = (content) => `
+<div class="modal" id="modal">
+  <div class="modal__content">
+    <p class="modal__text">${content}</p>
+  </div>
+  <div class="modal__foot">
+    <button class="modal__button" id="modal__button">Oke!</button>
+  </div>
+</div>  
+`;
+
 export {
   createRestaurantDetailTemplate,
   createRestaurantCard,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
   createNewReview,
+  createPopupModal,
 };

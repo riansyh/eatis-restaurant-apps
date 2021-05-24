@@ -15,12 +15,13 @@ class RestaurantSource {
   }
 
   static async addReview(data) {
+    console.log(JSON.stringify(data));
     const response = await fetch(API_ENDPOINT.ADD_REVIEW, {
       method: 'POST',
       body: JSON.stringify(data),
-      header: {
+      headers: {
         'x-api-key': CONFIG.API_KEY,
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
     });
     const responseJson = await response.json();
