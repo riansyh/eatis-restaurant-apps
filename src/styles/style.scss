@@ -521,6 +521,7 @@ button {
 
           #reviewerName {
             height: 44px;
+            max-width: 100%;
           }
 
           #reviewContent {
@@ -607,7 +608,7 @@ button {
     @include flexColumn();
     background-color: $white;
     margin: auto auto;
-    padding: 20px;
+    padding: 24px;
     width: 80%;
     max-width: 600px;
     min-height: 250px;
