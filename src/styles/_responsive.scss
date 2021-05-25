@@ -1,0 +1,137 @@
+//medium screen
+@media screen and (max-width: $medium) {
+  @include hamburger-show();
+  .welcome {
+    margin: 0;
+    .container {
+      flex-direction: column;
+      align-items: center;
+
+      .text {
+        order: 1;
+        margin-bottom: 50px;
+        margin-left: 0;
+        text-align: center;
+        padding: 0;
+
+        .welcome__title {
+          font-size: $title-size;
+        }
+
+        .welcome__desc {
+          padding: 0 25px;
+        }
+      }
+
+      img {
+        order: 2;
+        width: 200px;
+      }
+    }
+  }
+
+  .content {
+    .katalog {
+      .katalog__title {
+        font-size: $title-mobile;
+      }
+      .restaurant {
+        @include grid-size(2);
+      }
+    }
+  }
+
+  #mainContent {
+    h2 {
+      font-size: $title-mobile !important;
+    }
+
+    .restaurant-menus {
+      .foods,
+      .drinks {
+        width: auto !important;
+      }
+    }
+
+    .detail-container {
+      margin: 0 auto;
+      .restaurant-detail {
+        flex-direction: column;
+        align-items: stretch;
+        .restaurant-photo {
+          margin: 0;
+          min-height: 0;
+
+          img {
+            border-radius: 15px;
+          }
+        }
+        .restaurant__category {
+          padding: 5px 10px !important;
+        }
+      }
+    }
+
+    .restaurant-menus {
+      flex-direction: column;
+    }
+  }
+}
+
+//Mobile screen
+@media screen and (max-width: $mobile) {
+  .header {
+    .container {
+      min-height: 70px;
+
+      img {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  .hero__inner {
+    .hero__title {
+      font-size: $bigtitle-mobile;
+    }
+
+    .hero__tagline {
+      margin-top: 16px;
+      font-size: $body-mobile;
+    }
+  }
+
+  .content {
+    .katalog {
+      .restaurant {
+        @include grid-size(1);
+      }
+    }
+  }
+
+  #mainContent {
+    .restaurant-menus {
+      .foods,
+      .drinks {
+        margin: 30px 0 !important;
+        width: 100% !important;
+
+        img {
+          position: absolute;
+          top: -41px !important;
+          right: -20px !important;
+          z-index: 0;
+          @media screen and (max-width: $mobile) {
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+
+    .customer-reviews {
+      .review-card {
+        margin: 20px 0 !important;
+      }
+    }
+  }
+}

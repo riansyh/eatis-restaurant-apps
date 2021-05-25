@@ -1,0 +1,227 @@
+@import 'variable';
+@import 'mixin';
+
+#mainContent {
+  .detail-container {
+    h2 {
+      color: $orange;
+    }
+
+    h4 {
+      font-weight: 600;
+    }
+
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+
+    .restaurant-detail {
+      display: flex;
+      flex-direction: row;
+      max-width: 100%;
+      align-items: center;
+
+      .restaurant-photo {
+        flex-basis: 70%;
+        overflow: hidden;
+        min-height: 400px;
+        margin: 0 30px 0 0;
+
+        img {
+          width: 100%;
+          border-radius: 20px;
+          box-shadow: $smooth-shadow;
+        }
+      }
+
+      .details {
+        flex-basis: 30%;
+        @include flexColumn();
+
+        .restaurant__name {
+          font-size: 40px;
+          color: $orange;
+        }
+
+        .restaurant__categories {
+          display: flex;
+          margin: 10px 0 0 0;
+
+          .restaurant__category {
+            padding: 8px 20px;
+            border-radius: 7px;
+            background-color: $light-orange;
+            margin: 0 10px 0 0;
+            font-size: 0.8em;
+            color: $grey;
+          }
+        }
+
+        .restaurant__address {
+          margin-top: 20px !important;
+        }
+
+        .restaurant__address,
+        .restaurant__rating {
+          display: flex;
+          margin: 5px 0;
+          align-items: center;
+        }
+
+        .address,
+        .rating {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .menus__title,
+    .customer-review__title {
+      text-align: center;
+      margin: 32px 0 12px 0;
+      font-size: 2em;
+    }
+
+    .restaurant-menus {
+      display: flex;
+      justify-content: center;
+
+      .foods,
+      .drinks {
+        position: relative;
+        width: 50%;
+        padding: 20px 20px 40px 20px;
+        margin: 20px;
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: $smooth-shadow;
+
+        h3 {
+          font-size: 1.2em;
+          color: $grey;
+          text-align: center;
+        }
+
+        ul {
+          margin: 10px 30px;
+          li {
+            font-size: 1.2em;
+            @media screen and (max-width: $mobile) {
+              font-size: $body-mobile;
+            }
+          }
+        }
+
+        img {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+        }
+      }
+    }
+
+    .customer-reviews {
+      @include flexColumn();
+
+      .review-card {
+        background-color: $white;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px;
+        box-shadow: $smooth-shadow;
+
+        .review__header {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          color: $orange;
+          overflow: none !important;
+
+          .review-date {
+            font-size: 0.8em;
+          }
+
+          h5 {
+            font-size: 1.2em;
+          }
+
+          img {
+            position: absolute;
+            top: -26px;
+            right: -32px;
+          }
+
+          @media screen and (max-width: 380px) {
+            flex-direction: column;
+            text-align: left;
+            align-items: baseline;
+          }
+        }
+      }
+
+      .review-form {
+        width: 100%;
+        padding: 20px;
+        @include flexColumn();
+        justify-content: center;
+
+        .input-form {
+          label {
+            font-weight: 500;
+            color: $grey;
+            font-size: 1em;
+          }
+
+          input,
+          textarea {
+            border: none;
+            border-radius: 12px;
+            padding: 0 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            margin: 8px 0 8px 0;
+          }
+
+          #reviewerName {
+            height: 44px;
+            width: 40%;
+            max-width: 100%;
+            @media screen and (max-width: $mobile) {
+              width: 100%;
+            }
+          }
+
+          #reviewContent {
+            height: 80px;
+            padding: 10px;
+          }
+        }
+
+        .submit {
+          @include createButton();
+          &:hover {
+            cursor: pointer;
+          }
+
+          &:focus {
+            background-color: #e47556;
+          }
+        }
+
+        #reviewContent {
+          width: 100%;
+        }
+      }
+
+      .add-review__title {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@import 'responsive';

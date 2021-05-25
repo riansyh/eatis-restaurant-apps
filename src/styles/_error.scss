@@ -1,0 +1,44 @@
+@import 'variable';
+@import 'mixin';
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10%;
+  img {
+    width: 100px;
+    margin: 20px;
+  }
+
+  h2,
+  p {
+    text-align: center;
+  }
+
+  @media screen and (max-width: $medium) {
+    margin-top: 30%;
+  }
+}
+
+.empty-container {
+  @include flexColumn;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: $white;
+  box-shadow: $smooth-shadow;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $orange;
+    font-weight: 600;
+    margin: 20px;
+    font-size: 16px;
+  }
+}
