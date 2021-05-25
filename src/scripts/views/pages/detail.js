@@ -8,6 +8,7 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import addNewReview from '../../utils/add-new-review';
 import { hideLoading, showLoading } from '../../utils/loader-initiator';
+import showErrorPage from '../../utils/error-page-initiator';
 
 const detail = {
   async render() {
@@ -24,14 +25,18 @@ const detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await this._getRestaurantData(url.id);
     const detailContainer = document.querySelector('#detail-restaurant');
-    detailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
-    detailContainer.innerHTML += createNewReview();
-    addNewReview.post(url);
+    try {
+      detailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+      detailContainer.innerHTML += createNewReview();
+      addNewReview.post(url);
 
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant,
-    });
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        restaurant,
+      });
+    } catch (error) {
+      showErrorPage(error);
+    }
     hideLoading();
   },
 

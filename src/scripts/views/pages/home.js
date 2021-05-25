@@ -1,4 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
+import showErrorPage from '../../utils/error-page-initiator';
 import { hideLoading, showLoading } from '../../utils/loader-initiator';
 import { createRestaurantCard } from '../templates/template-creator';
 
@@ -41,9 +42,13 @@ const home = {
   async afterRender() {
     const restaurants = await RestaurantSource.restaurantList();
     const restaurantsContainer = document.querySelector('#restaurant');
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
-    });
+    try {
+      restaurants.forEach((restaurant) => {
+        restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
+      });
+    } catch (error) {
+      showErrorPage(error);
+    }
     hideLoading();
   },
 };

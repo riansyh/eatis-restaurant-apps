@@ -1,6 +1,9 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import { hideLoading, showLoading } from '../../utils/loader-initiator';
-import { createRestaurantCard } from '../templates/template-creator';
+import {
+  createEmptyFavorite,
+  createRestaurantCard,
+} from '../templates/template-creator';
 
 const favorite = {
   async render() {
@@ -8,7 +11,7 @@ const favorite = {
     window.scrollTo(0, 0);
     return `
     <section class="content">
-    <div class="katalog">
+    <div class="katalog" id="katalog">
         <h1 class="katalog__title favorite">Your Favorite Restaurant</h1>
         <div class="restaurant" id="restaurant"></div>
     </div>
@@ -18,10 +21,20 @@ const favorite = {
 
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+    console.log(restaurants.length);
     const restaurantsContainer = document.querySelector('#restaurant');
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
-    });
+    if (restaurants.length === 0) {
+      const katalogContainer = document.querySelector('#katalog');
+      katalogContainer.innerHTML += createEmptyFavorite();
+    } else {
+      try {
+        restaurants.forEach((restaurant) => {
+          restaurantsContainer.innerHTML += createRestaurantCard(restaurant);
+        });
+      } catch (error) {
+        showLoading(error);
+      }
+    }
     hideLoading();
   },
 };

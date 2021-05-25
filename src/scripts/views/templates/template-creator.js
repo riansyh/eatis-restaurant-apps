@@ -112,6 +112,23 @@ const createPopupModal = (data) => `
 </div>  
 `;
 
+const createErrorPage = (errorMessage) => `
+<div class="error-container">
+  <img src="./logo/error.svg" alt="error logo">
+  <h2 class="error__title">Oops, something went wrong</h2>
+  <p class="error__message">${errorMessage}</p>
+</div>
+`;
+
+const createEmptyFavorite = () => `
+<div class="empty-container">
+  <h3 class="empty-alert">Sorry...</h3>
+  <p class="empty-message">You didn't favorited any restaurants yet</p>\
+  <a href="/">Add Restaurant</a>
+</div>
+
+`;
+
 export {
   createRestaurantDetailTemplate,
   createRestaurantCard,
@@ -119,4 +136,6 @@ export {
   createLikedButtonTemplate,
   createNewReview,
   createPopupModal,
+  createErrorPage,
+  createEmptyFavorite,
 };
