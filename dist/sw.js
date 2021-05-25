@@ -17,6 +17,7 @@ var serviceWorkerOption = {
     "/images/ilustrasi.png",
     "/images/logo.svg",
     "/images/quote.png",
+    "/logo/error.svg",
     "/logo/location.svg",
     "/logo/star.svg",
     "/images/heros/hero-image.png",
