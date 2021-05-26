@@ -1,7 +1,10 @@
 import RestaurantSource from '../../data/restaurant-source';
 import showErrorPage from '../../utils/error-page-initiator';
 import { hideLoading, showLoading } from '../../utils/loader-initiator';
-import { createRestaurantCard } from '../templates/template-creator';
+import {
+  createRestaurantCard,
+  createSkipToContent,
+} from '../templates/template-creator';
 
 const home = {
   async render() {
@@ -42,6 +45,9 @@ const home = {
   async afterRender() {
     const restaurants = await RestaurantSource.restaurantList();
     const restaurantsContainer = document.querySelector('#restaurant');
+    const skipContainer = document.querySelector('#skipToContent');
+    skipContainer.innerHTML = createSkipToContent('#restaurant');
+
     try {
       restaurants.forEach((restaurant) => {
         restaurantsContainer.innerHTML += createRestaurantCard(restaurant);

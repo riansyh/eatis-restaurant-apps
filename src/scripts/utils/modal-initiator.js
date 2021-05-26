@@ -29,7 +29,6 @@ const modalInitiator = {
   },
 
   async showModal() {
-    console.log(this._message);
     this._modalContainer.innerHTML = createPopupModal(this._message);
     const modalButton = document.querySelector('#modalButton');
     modalButton.addEventListener('click', async () => {
@@ -42,31 +41,48 @@ const modalInitiator = {
     switch (status) {
       case 'success':
         message = {
-          title: 'Berhasil Ditambahkan!',
-          content: 'Hore review yang kamu tulis berhasil ditambahkan',
+          title: 'Success!',
+          content:
+            'Your review has been added successfully, please refresh it to see the change!',
           color: 'green',
         };
         break;
       case 'fail':
         message = {
-          title: 'Gagal Menambahkan!',
-          content:
-            'Maaf review yang kamu tulis tidak berhasil ditambahkan, periksa koneksi internet kamu!',
+          title: 'Failed To Add Review',
+          content: 'Oops, your review failed to add, please try again later',
           color: 'orange',
         };
         break;
       case 'empty':
         message = {
-          title: 'Data Harus Diisi!',
+          title: 'Please Fill Out The Field',
           content:
-            'Untuk menambahkan review kamu harus mengisi nama dan review dengan jelas',
+            'To add the new review, name and review field needed to be filled, fill it correctly!',
           color: 'orange',
+        };
+        break;
+      case 'add':
+        message = {
+          title: 'Success!',
+          content:
+            'This restaurant has been added to your favorite restaurant!',
+          color: 'green',
+        };
+        break;
+      case 'remove':
+        message = {
+          title: 'Success!',
+          content:
+            'This restaurant has been removed from your favorite restaurant!',
+          color: 'green',
         };
         break;
       default:
         message = {
-          title: 'Berhasil Ditambahkan!',
-          content: 'Hore review yang kamu tulis berhasil ditambahkan',
+          title: 'Success!',
+          content:
+            'This restaurant has been removed from your favorite restaurant!',
           color: 'green',
         };
         break;

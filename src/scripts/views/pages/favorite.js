@@ -21,8 +21,8 @@ const favorite = {
 
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
-    console.log(restaurants.length);
     const restaurantsContainer = document.querySelector('#restaurant');
+
     if (restaurants.length === 0) {
       const katalogContainer = document.querySelector('#katalog');
       katalogContainer.innerHTML += createEmptyFavorite();

@@ -14,8 +14,6 @@ const addNewReview = {
         review: reviewContent.value,
       };
       const isEmpty = this._checkValue(reviewerName.value, reviewContent.value);
-      console.log(reviewerName.value);
-      console.log(isEmpty);
       if (!isEmpty) {
         RestaurantSource.addReview(newReview);
       } else {

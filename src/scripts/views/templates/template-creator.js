@@ -70,13 +70,13 @@ const createRestaurantCard = (restaurant) => `
 
 const createLikeButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
-     <i class="fa fa-heart-o" aria-hidden="true"></i>
+     <i class="far fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
 const createLikedButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+    <i class="fas fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
@@ -126,7 +126,10 @@ const createEmptyFavorite = () => `
   <p class="empty-message">You didn't favorited any restaurants yet</p>\
   <a href="/">Add Restaurant</a>
 </div>
+`;
 
+const createSkipToContent = (content) => `
+<a href="${content}" class="skip-link">Skip to konten</a>
 `;
 
 export {
@@ -138,4 +141,5 @@ export {
   createPopupModal,
   createErrorPage,
   createEmptyFavorite,
+  createSkipToContent,
 };

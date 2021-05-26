@@ -3,6 +3,7 @@ import {
   createLikeButtonTemplate,
   createLikedButtonTemplate,
 } from '../views/templates/template-creator';
+import modalInitiator from './modal-initiator';
 
 const LikeButtonInitiator = {
   async init({ likeButtonContainer, restaurant }) {
@@ -33,6 +34,11 @@ const LikeButtonInitiator = {
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
       await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
+      modalInitiator.init({
+        modalContainer: document.querySelector('#modalContainer'),
+        status: 'add',
+        reload: false,
+      });
       this._renderButton();
     });
   },
@@ -43,6 +49,11 @@ const LikeButtonInitiator = {
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
       await FavoriteRestaurantIdb.deleteRestaurant(this._restaurant.id);
+      modalInitiator.init({
+        modalContainer: document.querySelector('#modalContainer'),
+        status: 'remove',
+        reload: false,
+      });
       this._renderButton();
     });
   },
