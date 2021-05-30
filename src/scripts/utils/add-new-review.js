@@ -1,6 +1,6 @@
 import RestaurantSource from '../data/restaurant-source';
+import { reviewCards } from '../views/templates/detail-creator';
 import modalInitiator from './modal-initiator';
-import updateReview from './update-reviews';
 
 const addNewReview = {
   post(url) {
@@ -8,32 +8,41 @@ const addNewReview = {
     const reviewerName = document.querySelector('#reviewerName');
     const reviewContent = document.querySelector('#reviewContent');
 
-    submitButton.addEventListener('click', () => {
+    submitButton.addEventListener('click', async () => {
+      let fetchStatus;
       const newReview = {
         id: url.id,
         name: reviewerName.value,
         review: reviewContent.value,
       };
-      const isEmpty = this._checkValue(reviewerName.value, reviewContent.value);
-      if (!isEmpty) {
-        RestaurantSource.addReview(newReview);
-        updateReview.update(url.id);
+      if (!!newReview.name && !!newReview.review) {
+        try {
+          const response = await RestaurantSource.addReview(newReview);
+          console.log(response);
+          const reviewContanier = document.querySelector('#customerReview');
+          reviewContanier.innerHTML = reviewCards(response.customerReviews);
+
+          fetchStatus = 'succes';
+        } catch (error) {
+          fetchStatus = 'fail';
+        }
       } else {
-        modalInitiator.init({
-          modalContainer: document.querySelector('#modalContainer'),
-          status: 'empty',
-          reload: false,
-        });
+        fetchStatus = 'empty';
       }
+
+      this._emptyForm();
+
+      modalInitiator.init({
+        modalContainer: document.querySelector('#modalContainer'),
+        status: fetchStatus,
+        reload: false,
+      });
     });
   },
 
-  _checkValue(name, content) {
-    let error = false;
-    if (name === '' || content === '') {
-      error = true;
-    }
-    return error;
+  _emptyForm() {
+    document.querySelector('#reviewerName').value = '';
+    document.querySelector('#reviewContent').value = '';
   },
 };
 
