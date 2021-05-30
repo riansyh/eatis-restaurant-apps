@@ -18,7 +18,7 @@ const addNewReview = {
       if (!!newReview.name && !!newReview.review) {
         try {
           const response = await RestaurantSource.addReview(newReview);
-          console.log(response);
+          RestaurantSource.detailRestaurant(url.id);
           const reviewContanier = document.querySelector('#customerReview');
           reviewContanier.innerHTML = reviewCards(response.customerReviews);
 
