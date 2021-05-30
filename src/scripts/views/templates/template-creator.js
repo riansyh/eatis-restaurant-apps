@@ -44,7 +44,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 </div>
   
 <h2 class="customer-review__title">Customer Review</h2>
-  <div class="customer-reviews">
+  <div class="customer-reviews" id="customerReview">
     ${reviewCards(restaurant.customerReviews)}
   </div>
   `;

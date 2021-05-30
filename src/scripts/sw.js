@@ -13,5 +13,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(CacheHelper.revalidateCache(event.request));
+  if (event.request.method === 'GET') {
+    event.respondWith(CacheHelper.revalidateCache(event.request));
+  }
 });
