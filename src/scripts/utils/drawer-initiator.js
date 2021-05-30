@@ -9,6 +9,11 @@ const DrawerInitiator = {
       this._closeDrawer(event, drawer);
       this._changeIcon(drawer, button);
     });
+
+    drawer.addEventListener('click', (event) => {
+      this._closeDrawer(event, drawer);
+      this._changeIcon(drawer, button);
+    });
   },
 
   _toggleDrawer(event, drawer) {
