@@ -1,5 +1,6 @@
 import RestaurantSource from '../data/restaurant-source';
 import modalInitiator from './modal-initiator';
+import updateReview from './update-reviews';
 
 const addNewReview = {
   post(url) {
@@ -16,6 +17,7 @@ const addNewReview = {
       const isEmpty = this._checkValue(reviewerName.value, reviewContent.value);
       if (!isEmpty) {
         RestaurantSource.addReview(newReview);
+        updateReview.update(url.id);
       } else {
         modalInitiator.init({
           modalContainer: document.querySelector('#modalContainer'),

@@ -35,7 +35,7 @@ class RestaurantSource {
       modalInitiator.init({
         modalContainer: document.querySelector('#modalContainer'),
         status: 'fail',
-        reload: true,
+        reload: false,
       });
     }
   }

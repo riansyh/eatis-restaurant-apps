@@ -42,8 +42,7 @@ const modalInitiator = {
       case 'success':
         message = {
           title: 'Success!',
-          content:
-            'Your review has been added successfully, please refresh it to see the change!',
+          content: 'Your review has been added successfully!',
           color: 'green',
         };
         break;
