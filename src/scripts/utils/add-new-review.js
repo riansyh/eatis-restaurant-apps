@@ -22,7 +22,7 @@ const addNewReview = {
           const reviewContanier = document.querySelector('#customerReview');
           reviewContanier.innerHTML = reviewCards(response.customerReviews);
 
-          fetchStatus = 'succes';
+          fetchStatus = 'success';
         } catch (error) {
           fetchStatus = 'fail';
         }
