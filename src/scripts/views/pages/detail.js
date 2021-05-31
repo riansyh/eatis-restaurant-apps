@@ -25,6 +25,8 @@ const detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await this._getRestaurantData(url.id);
     const detailContainer = document.querySelector('#detail-restaurant');
+    document.querySelector('#skipToContent').innerHTML = '';
+
     try {
       detailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
       detailContainer.innerHTML += createNewReview();

@@ -22,6 +22,7 @@ const favorite = {
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantsContainer = document.querySelector('#restaurant');
+    document.querySelector('#skipToContent').innerHTML = '';
 
     if (restaurants.length === 0) {
       const katalogContainer = document.querySelector('#katalog');
