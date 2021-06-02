@@ -9,7 +9,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 }"  alt="${restaurant.name}"></img>
     </div>  
     <div class="details">
-        <h2 class="restaurant__name">${restaurant.name}</h2>
+        <h1 class="restaurant__name">${restaurant.name}</h1>
         <div class="restaurant__categories">
             ${categoriesList(restaurant.categories)}
         </div>

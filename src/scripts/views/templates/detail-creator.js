@@ -24,7 +24,7 @@ const reviewCards = (reviews) => {
     <div class="review-card">
         <div class="review__header">
             <img src="./images/quote.png" alt="quote logo">
-            <h5 class="reviewer-name">${review.name}</h5>
+            <h3 class="reviewer-name">${review.name}</h3>
             <p class="review-date">${review.date}</p>
         </div>
         <p class="review__main">

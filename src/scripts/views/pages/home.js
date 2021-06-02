@@ -35,7 +35,7 @@ const home = {
 
       <section class="content">
         <div class="katalog">
-          <h1 class="katalog__title">Explore Restaurant</h1>
+          <h2 class="katalog__title">Explore Restaurant</h2>
           <div class="restaurant" id="restaurant"></div>
         </div>
       </section>              

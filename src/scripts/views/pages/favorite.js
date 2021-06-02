@@ -12,7 +12,7 @@ const favorite = {
     return `
     <section class="content">
     <div class="katalog" id="katalog">
-        <h1 class="katalog__title favorite">Your Favorite Restaurant</h1>
+        <h2 class="katalog__title favorite">Your Favorite Restaurant</h2>
         <div class="restaurant" id="restaurant"></div>
     </div>
     </section>
