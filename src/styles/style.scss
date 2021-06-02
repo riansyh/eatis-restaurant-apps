@@ -36,6 +36,12 @@ button {
   min-height: 44px;
 }
 
+.logo {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .footer {
   padding: 20px;
   background-color: $grey;

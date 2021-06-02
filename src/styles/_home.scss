@@ -187,6 +187,7 @@
         &:hover {
           transform: scale(1.02);
           transition: $animasi;
+          cursor: pointer;
         }
 
         .resto-item__location-tag {
