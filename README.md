@@ -1,6 +1,10 @@
 # eatis-restaurant-apps
 
-This repository is a submission for Front-end Web Expert Course, Dicoding.
+This repository is a submission for Front-end Web Developer Expert Course, Decoding.
+
+This is a progressive web app that was created using Vanilla JS, SASS CSS Preprocessor, Webpack, Node JS, and applying the responsive layout and accessibilities.
+
+All data obtained from https://restaurant-api.dicoding.dev/
 
 ## Usage
 
