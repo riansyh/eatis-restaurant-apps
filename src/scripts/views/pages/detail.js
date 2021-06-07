@@ -4,7 +4,7 @@ import {
   createNewReview,
   createRestaurantDetailTemplate,
 } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import addNewReview from '../../utils/add-new-review';
 import { hideLoading, showLoading } from '../../utils/loader-initiator';
@@ -32,7 +32,7 @@ const detail = {
       detailContainer.innerHTML += createNewReview();
       addNewReview.post(url);
 
-      LikeButtonInitiator.init({
+      LikeButtonPresenter.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
         restaurant,
       });

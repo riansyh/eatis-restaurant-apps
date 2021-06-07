@@ -5,7 +5,7 @@ import {
 } from '../views/templates/template-creator';
 import modalInitiator from './modal-initiator';
 
-const LikeButtonInitiator = {
+const LikeButtonPresenter = {
   async init({ likeButtonContainer, restaurant }) {
     this._likeButtonContainer = likeButtonContainer;
     this._restaurant = restaurant;
@@ -59,4 +59,4 @@ const LikeButtonInitiator = {
   },
 };
 
-export default LikeButtonInitiator;
+export default LikeButtonPresenter;
