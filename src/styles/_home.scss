@@ -102,8 +102,18 @@
   width: 100%;
   text-align: center;
   background-color: $grey;
-  background-image: url('../public/images/heros/hero-image.png');
+  background-image: url('../public/images/heros/hero-image-large.jpg');
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: $medium) {
+    background-image: url('../public/images/heros/hero-image-medium.jpg');
+  }
+
+  @media screen and (max-width: $mobile) {
+    background-image: url('../public/images/heros/hero-image-small.jpg');
+  }
 }
 
 .hero__inner {

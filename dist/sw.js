@@ -1,6 +1,8 @@
 var serviceWorkerOption = {
   "assets": [
-    "/src/public/images/heros/hero-image.png",
+    "/src/public/images/heros/hero-image-large.jpg",
+    "/src/public/images/heros/hero-image-medium.jpg",
+    "/src/public/images/heros/hero-image-small.jpg",
     "/bundle.js",
     "/favicon.svg",
     "/manifest.json",
@@ -12,15 +14,9 @@ var serviceWorkerOption = {
     "/icons/icon-512x512.png",
     "/icons/icon-72x72.png",
     "/icons/icon-96x96.png",
-    "/images/drinks.png",
-    "/images/foods.png",
-    "/images/ilustrasi.png",
-    "/images/logo.svg",
-    "/images/quote.png",
     "/logo/error.svg",
     "/logo/location.svg",
     "/logo/star.svg",
-    "/images/heros/hero-image.png",
     "/index.html"
   ]
 };
