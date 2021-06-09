@@ -57,7 +57,7 @@ const createRestaurantCard = (restaurant) => `
     <div class="resto-item__photo">
         <img
         class="lazyload"
-        src="./images/placeholder.png"
+        src="./placeholder.svg"
         data-src=${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}
         alt="${restaurant.name}}"
         />
