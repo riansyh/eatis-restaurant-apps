@@ -1,10 +1,14 @@
 import CONFIG from '../../global/config';
 import { categoriesList, menuList, reviewCards } from './detail-creator';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const createRestaurantDetailTemplate = (restaurant) => `
     <div class="restaurant-detail">
         <div class="restaurant-photo">
-            <img src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}"  alt="${restaurant.name}"></img>
+            <img src="${CONFIG.BASE_IMAGE_URL}medium/${
+  restaurant.pictureId
+}"  alt="${restaurant.name}"></img>
         </div>  
         <div class="details">
             <h1 class="restaurant__name">${restaurant.name}</h1>
@@ -52,7 +56,9 @@ const createRestaurantCard = (restaurant) => `
     <h3 class="resto-item__location-tag">${restaurant.city}</h3>
     <div class="resto-item__photo">
         <img
-        src=${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}
+        class="lazyload"
+        src="./images/placeholder.png"
+        data-src=${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}
         alt="${restaurant.name}}"
         />
     </div>

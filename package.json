@@ -48,6 +48,7 @@
   "dependencies": {
     "@codeceptjs/configure": "^0.6.2",
     "idb": "^6.1.0",
+    "lazysizes": "^5.3.2",
     "node-sass": "^5.0.0",
     "regenerator-runtime": "^0.13.5",
     "serviceworker-webpack-plugin": "^1.0.1"

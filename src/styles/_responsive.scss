@@ -136,3 +136,9 @@
     }
   }
 }
+
+@media screen and (max-width: 620px) and (min-width: 435px) {
+  .content .katalog .restaurant .resto-item {
+    margin: auto auto;
+  }
+}

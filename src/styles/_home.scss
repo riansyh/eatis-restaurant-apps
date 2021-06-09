@@ -187,6 +187,7 @@
 
       .resto-item {
         min-height: 400px;
+        max-width: 360px;
         @include flexColumn();
         border-radius: 20px;
         overflow: hidden;
