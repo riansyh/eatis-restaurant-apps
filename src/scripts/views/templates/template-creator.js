@@ -60,6 +60,8 @@ const createRestaurantCard = (restaurant) => `
         src="./placeholder.svg"
         data-src=${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}
         alt="${restaurant.name}}"
+        height="200px"
+        width="100%"
         />
     </div>
     <p class="resto-item__rate">⭐ ${restaurant.rating}</p>

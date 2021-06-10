@@ -19,7 +19,7 @@ const home = {
 
       <div class="welcome">
         <div class="container">
-          <img src="./images/ilustrasi.png" alt="Ilustrasi orang dan makanan" />
+          <img src="./images/ilustrasi.png" width="300px" height="100%" alt="Ilustrasi orang dan makanan" />
           <div class="text">
             <h2 class="welcome__title">
               Welcome to <span class="highlight">Eaties</span> <br />
