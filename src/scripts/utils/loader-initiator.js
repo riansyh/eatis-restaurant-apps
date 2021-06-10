@@ -1,3 +1,5 @@
+import { skeletonHome } from '../views/templates/template-creator';
+
 const hideLoading = () => {
   const loadingContainer = document.querySelector('#loadingContainer');
   const loader = document.querySelector('#loading');
@@ -12,8 +14,26 @@ const showLoading = () => {
   const loadingContainer = document.querySelector('#loadingContainer');
   const loader = document.querySelector('#loading');
 
+  loader.classList.remove('hidden');
   loader.classList.add('visible');
   loadingContainer.classList.remove('hidden');
 };
 
-export { hideLoading, showLoading };
+const showSkeleton = () => {
+  const skeletonContainer = document.querySelector('#skeletonLoading');
+  skeletonContainer.innerHTML = skeletonHome();
+};
+
+const hideSkeleton = () => {
+  const skeletonContainer = document.querySelector('#skeletonLoading');
+  setTimeout(() => {
+    skeletonContainer.innerHTML = '';
+  }, 500);
+};
+
+export {
+  hideLoading,
+  showLoading,
+  showSkeleton,
+  hideSkeleton,
+};

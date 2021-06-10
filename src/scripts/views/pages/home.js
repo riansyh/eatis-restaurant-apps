@@ -1,38 +1,18 @@
 import RestaurantSource from '../../data/restaurant-source';
 import showErrorPage from '../../utils/error-page-initiator';
-import { hideLoading, showLoading } from '../../utils/loader-initiator';
+import { hideSkeleton, showSkeleton } from '../../utils/loader-initiator';
 import {
+  createOpening,
   createRestaurantCard,
   createSkipToContent,
 } from '../templates/template-creator';
 
 const home = {
   async render() {
-    showLoading();
+    showSkeleton();
     return `
-      <div class="hero">
-        <div class="hero__inner">
-          <h1 class="hero__title">Come & Eat the Delicious Food</h1>
-          <p class="hero__tagline">It’s easy to find great restaurant here!</p>
-        </div>
-      </div>
-
-      <div class="welcome">
-        <div class="container">
-          <img src="./images/ilustrasi.png" width="300px" height="100%" alt="Ilustrasi orang dan makanan" />
-          <div class="text">
-            <h2 class="welcome__title">
-              Welcome to <span class="highlight">Eaties</span> <br />
-              where the food make you feel greater
-            </h2>
-            <p class="welcome__desc">
-              Explore all available restaurant easily and you can get so many
-              insight about the restaurant here
-            </p>
-          </div>
-        </div>
-      </div>    
-
+      <section class="opening" id="opening">
+      </section>
       <section class="content">
         <div class="katalog">
           <h2 class="katalog__title">Explore Restaurant</h2>
@@ -46,7 +26,9 @@ const home = {
     const restaurants = await RestaurantSource.restaurantList();
     const restaurantsContainer = document.querySelector('#restaurant');
     const skipContainer = document.querySelector('#skipToContent');
+    const openingContainer = document.querySelector('#opening');
     skipContainer.innerHTML = createSkipToContent('#restaurant');
+    openingContainer.innerHTML = createOpening();
 
     try {
       restaurants.forEach((restaurant) => {
@@ -55,7 +37,7 @@ const home = {
     } catch (error) {
       showErrorPage(error);
     }
-    hideLoading();
+    hideSkeleton();
   },
 };
 

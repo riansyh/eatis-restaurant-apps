@@ -3,6 +3,31 @@ import { categoriesList, menuList, reviewCards } from './detail-creator';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
+const createOpening = () => `
+      <div class="hero">
+        <div class="hero__inner">
+          <h1 class="hero__title">Come & Eat the Delicious Food</h1>
+          <p class="hero__tagline">It’s easy to find great restaurant here!</p>
+        </div>
+      </div>
+
+      <div class="welcome">
+        <div class="container">
+          <img src="./images/ilustrasi.png" width="300px" height="252px" alt="Ilustrasi orang dan makanan" />
+          <div class="text">
+            <h2 class="welcome__title">
+              Welcome to <span class="highlight">Eaties</span> <br />
+              where the food make you feel greater
+            </h2>
+            <p class="welcome__desc">
+              Explore all available restaurant easily and you can get so many
+              insight about the restaurant here
+            </p>
+          </div>
+        </div>
+      </div>    
+`;
+
 const createRestaurantDetailTemplate = (restaurant) => `
     <div class="restaurant-detail">
         <div class="restaurant-photo">
@@ -138,6 +163,49 @@ const createSkipToContent = (content) => `
   <a href="${content}" class="skip-link">Skip to konten</a>
 `;
 
+const createSkeletonCard = () => `
+  <div class="resto-item no-shadow no-hover">
+      <div class="resto-item__photo-sk skeleton-loading">
+      </div>
+      <div class="content margin-top">
+      <div class="text-box half XS skeleton-loading"></div>  
+        <div class="text-box L full skeleton-loading"></div>
+        <div class="text-box three-quarter skeleton-loading"></div>
+        <div class="text-box half skeleton-loading"></div>  
+      </div>
+    </div>
+`;
+
+const multiSkeletonCard = () => {
+  let html = '';
+  for (let idx = 0; idx < 20; idx += 1) {
+    html += createSkeletonCard();
+  }
+  return html;
+};
+
+const skeletonHome = () => `
+  <div class="hero-skeleton skeleton-loading"></div>
+  <div class="container-skeleton">
+    <div class="illustration-home skeleton-loading"></div>
+    <div class="text-skeleton">
+      <div class="text-box L full skeleton-loading"></div>
+      <div class="text-box L three-quarter skeleton-loading"></div>
+      <div class="text-box L half skeleton-loading"></div>  
+      <div class="text-box S full skeleton-loading"></div>  
+    </div>
+  </div>
+
+  <section class="content">
+    <div class="katalog">
+      <div class="katalog__title-sk skeleton-loading"></div>
+      <div class="restaurant">
+        ${multiSkeletonCard()}
+      </div>
+    </div>
+  </section>                
+`;
+
 export {
   createRestaurantDetailTemplate,
   createRestaurantCard,
@@ -148,4 +216,6 @@ export {
   createErrorPage,
   createEmptyFavorite,
   createSkipToContent,
+  createOpening,
+  skeletonHome,
 };
