@@ -12,10 +12,11 @@ Scenario('showing empty liked movies', ({ I }) => {
   I.see("You didn't favorited any restaurants yet", '.empty-message');
 });
 
-Scenario('liking one restaurant', async ({ I }) => {
+Scenario('like and unliking one restaurant', async ({ I }) => {
   I.see("You didn't favorited any restaurants yet", '.empty-message');
   I.amOnPage('/');
 
+  // like restaurant
   I.wait(2);
   I.seeElement('.resto-item__title a');
   const firstRestaurant = locate('.resto-item__title a').first();
@@ -31,4 +32,16 @@ Scenario('liking one restaurant', async ({ I }) => {
 
   const likedRestaurantTitle = await I.grabTextFrom('.resto-item__title a');
   assert.strictEqual(likedRestaurantTitle, firstRestaurantTitle);
+
+  // unllike restaurant
+  I.wait(2);
+  I.click(firstRestaurant);
+
+  I.wait(2);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.empty-container');
+  I.see("You didn't favorited any restaurants yet", '.empty-message');
 });
